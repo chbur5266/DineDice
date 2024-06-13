@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-image: url('/static/background-image.jpg'); /* Path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.content {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+    background-color: #4b6748; /* Sage green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease-in-out;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #395e3e; /* Darker shade of sage green */
+}
+
+.input-container {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="range"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    transition: border-color 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="range"]:focus {
+    border-color: #4b6748; /* Sage green */
+    outline: none;
+}
+
+input[type="range"] {
+    width: 200px;
+}
+
+#distance-value {
+    font-weight: bold;
+}

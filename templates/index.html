@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DineDice</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>DineDice</h1>
+            <form action="/" method="POST">
+                <div class="input-container">
+                    <label for="zip_code">Enter Zip Code:</label>
+                    <input type="text" id="zip_code" name="zip_code" required><br><br>
+                </div>
+
+                <div class="input-container">
+                    <label for="distance">Enter Distance (miles):</label>
+                    <input type="range" id="distance" name="distance" min="1" max="20" value="10" oninput="updateDistanceValue(this.value)">
+                    <span id="distance-value">10</span> miles<br><br>
+                </div>
+
+                <input type="submit" value="Find a Restaurant" class="button">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function updateDistanceValue(value) {
+            document.getElementById('distance-value').innerText = value;
+        }
+    </script>
+</body>
+</html>

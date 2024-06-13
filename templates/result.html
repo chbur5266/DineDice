@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DineDice - Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>DineDice</h1>
+            {% if restaurant %}
+                <p>Name: {{ restaurant.name }}</p>
+                <!-- Updated code for displaying star rating sprites -->
+                <div class="rating">
+                    {% set rating_value = restaurant.rating %}
+                    {% set rounded_rating = 0.5 * (rating_value / 0.5) | round %}
+                    {% set rating_map = {0: '0.png', 0.5: '0.5.png', 1: '1.png', 1.5: '1.5.png', 2: '2.png', 2.5: '2.5.png', 3: '3.png', 3.5: '3.5.png', 4: '4.png', 4.5: '4.5.png', 5: '5.png'} %}
+                    {% if rating_map[rounded_rating] %}
+                        <img src="{{ url_for('static', filename='Assets/' ~ rating_map[rounded_rating]) }}" alt="Star Rating">
+                    {% else %}
+                        <p>No rating available</p>
+                    {% endif %}
+                </div>
+                <!-- End of updated code for star rating sprites -->
+                <p>Price: {{ restaurant.price or 'N/A' }}</p>
+                <p>Distance: {{ (restaurant.distance / 1609.34) | round(2) }} miles</p>
+                <button onclick="window.open('https://www.google.com/maps/search/?api=1&query={{ restaurant.coordinates.latitude }},{{ restaurant.coordinates.longitude }}', '_blank')" class="button">View in Maps</button>
+                <br><br>
+                <button onclick="location.reload();" class="button">Choose Again</button>
+				<br><br>
+                <button onclick="goBack();" class="button">Back</button>
+            {% else %}
+                <p>{{ error }}</p>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        function goBack() {
+            window.location.href = '';
+        }
+    </script>	
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Finder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Find a Restaurant</h1>
+        <form method="post" action="/">
+            <label for="zip_code">Zip Code:</label>
+            <input type="text" id="zip_code" name="zip_code" required>
+            <label for="distance">Distance (miles):</label>
+            <input type="range" id="distance" name="distance" min="1" max="20" value="10" oninput="this.nextElementSibling.value = this.value">
+            <output>10</output> miles
+            <button type="submit">Find Restaurant</button>
+        </form>
+    </div>
+</body>
+</html>
